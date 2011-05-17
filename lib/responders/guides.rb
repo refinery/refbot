@@ -3,7 +3,7 @@ require "net/http"
 class Responders::Guides < Responders::Base
   def initialize *args
     super *args
-    @last_update_at = 0 
+    @last_update_at = 0
   end
 
   def channel_message msg, who, full_name
@@ -17,7 +17,7 @@ class Responders::Guides < Responders::Base
         else
           say_to_chan "#{$1} See #{guide["url"]}"
         end
-      when /^!guide (.$)/
+      when /^!guide (.*)$/
         guide = find_guide $1
         if guide.nil?
           say_to_chan "#{who}, guide \"#{$1}\" not found :("
