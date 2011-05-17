@@ -9,7 +9,7 @@ class Responders::Guides < Responders::Base
   def channel_message msg, who, full_name
     case msg
       when /^(.*)(:,)? !guides$/, /^!guides$/
-        say_to_chan "#{$1 || who} See http://refinerycms.com/guides for help with RefineryCMS"
+        say_to_chan "#{$1 || "#{who}:"} See http://refinerycms.com/guides for help with RefineryCMS"
       when /^(.*)(:,)? !guide (.*)$/
         guide = find_guide $3
         if guide.nil?
@@ -22,7 +22,7 @@ class Responders::Guides < Responders::Base
         if guide.nil?
           say_to_chan "#{who}, guide \"#{$1}\" not found :("
         else
-          say_to_chan "#{who} See #{guide["url"]}"
+          say_to_chan "#{who}: See #{guide["url"]}"
         end
     end
   end
