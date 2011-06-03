@@ -6,3 +6,4 @@ djangocms: divio/django-cms
 nesta: gma/nesta
 browsercms: browsermedia/browsercms
 pyro: pyrocms/pyrocms
+locomotivecms: locomotivecms/engine
