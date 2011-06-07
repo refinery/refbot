@@ -15,7 +15,7 @@ class Responders::Rank< Responders::Base
         
         contributors.delete_if {|c| !usernames.include?(c["login"])}
         if contributors.size > 0
-          say_to_chan "Comparing Contributors: " + contributor_list(contributors) if contributors.size > 0
+          say_to_chan "Comparing Contributors: " + contributor_list(contributors)
         else
           say_to_chan "Sorry I don't have any commits by those Github usernames"
         end
