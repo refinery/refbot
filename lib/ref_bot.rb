@@ -11,6 +11,7 @@ class RefineryBot
       Responders::Ask.new(self),
       Responders::Guides.new(self),
       Responders::Issues.new(self),
+      Responders::Rank.new(self)
     ]
   end
 

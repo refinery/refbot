@@ -28,6 +28,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  httparty
   json
   octopi
   rspec

@@ -30,6 +30,7 @@ files = %w{
   responders/ask
   responders/guides
   responders/issues
+  responders/rank
 
   cms_comparer
 }
