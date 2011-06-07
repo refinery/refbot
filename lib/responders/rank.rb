@@ -13,17 +13,17 @@ class Responders::Rank< Responders::Base
         contributors = HTTParty.get("http://github.com/api/v2/json/repos/show/resolve/refinerycms/contributors")["contributors"]    
         usernames = $1.gsub(", ", " ").split
         
-        contributors.delete_if {|c| !usernames.include?(c["name"])}
+        contributors.delete_if {|c| !usernames.include?(c["login"])}
         say_to_chan "Comparing Contributors: " + contributor_list(contributors)
     end
   end
   
   def contributor_list contributors
-    contributors.sort_by! {|c| c["contributions"]}
+    contributors.sort_by!{|c| c["contributions"]}.reverse!
     
     string = []
     contributors.each do |c|
-      string << c["name"] + " " + c["contributions"].to_s
+      string << c["login"] + " " + c["contributions"].to_s
     end
     
     string.join(", ")
