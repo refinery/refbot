@@ -8,13 +8,13 @@ class Responders::Rank< Responders::Base
         end
         
         contributors = HTTParty.get("http://github.com/api/v2/json/repos/show/resolve/refinerycms/contributors")["contributors"]    
-        say_to_chan "Top #{$1} Contributors: " + contributor_list(contributors[0, $1.to_i])
+        say_to_chan "Top #{$1} Contributors: " + contributor_list(contributors[0, $1.to_i]) if contributors.size > 0
       when /^!rank (.+)$/
         contributors = HTTParty.get("http://github.com/api/v2/json/repos/show/resolve/refinerycms/contributors")["contributors"]    
         usernames = $1.gsub(", ", " ").split
         
         contributors.delete_if {|c| !usernames.include?(c["login"])}
-        say_to_chan "Comparing Contributors: " + contributor_list(contributors)
+        say_to_chan "Comparing Contributors: " + contributor_list(contributors) if contributors.size > 0
     end
   end
   
