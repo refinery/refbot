@@ -62,18 +62,12 @@ module CmsComparer
     end
 
     year = time.year - 1970
-
     if year > 0
       txt << sprintf("%2dy", year)
     end
 
-    if time.yday > 0
-      txt << sprintf("%3dd", time.yday)
-    end
-
-    if time.hour > 0
-      txt << sprintf("%2dh", time.hour)
-    end
+    txt << sprintf("%3dd", time.yday)
+    txt << sprintf("%2dh", time.hour)
 
     txt.join " "
   end
