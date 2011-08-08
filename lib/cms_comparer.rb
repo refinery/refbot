@@ -52,7 +52,7 @@ module CmsComparer
 
     stats
   end
- 
+
   def self.seconds_to_days_and_hours seconds, since_unix_epoch = true
     txt = []
     if since_unix_epoch
@@ -64,15 +64,15 @@ module CmsComparer
     year = time.year - 1970
 
     if year > 0
-      txt << "#{year}y"
+      txt << sprintf("%2dy", year)
     end
 
     if time.yday > 0
-      txt << "#{time.yday}d"
+      txt << sprintf("%3dd", time.yday)
     end
 
     if time.hour > 0
-      txt << "#{time.hour}h"
+      txt << sprintf("%2dh", time.hour)
     end
 
     txt.join " "
