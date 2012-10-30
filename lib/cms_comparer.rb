@@ -2,7 +2,7 @@ require 'octopi'
 
 module CmsComparer
   include Octopi
-  REFINERY = "resolve/refinerycms"
+  REFINERY = "refinery/refinerycms"
 
   def self.competitor_names
     @@competitor_names ||= COMPETITORS.keys
